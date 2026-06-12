@@ -1,3 +1,7 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <section
   class="qlf-hero-{{ section.id }}"
   style="
@@ -33,7 +37,7 @@
         </div>
       {% endif %}
 
-      <h1>{{ section.settings.heading }}</h1>
+      <h1>{{ section.settings.heading | newline_to_br }}</h1>
 
       <div class="qlf-badges">
         {% if section.settings.badge_1 != blank %}
@@ -68,7 +72,7 @@
 
     {% if section.settings.product_image != blank %}
       <img
-        src="{{ section.settings.product_image | image_url: width: 900 }}"
+        src="{{ section.settings.product_image | image_url: width: 1000 }}"
         alt="{{ section.settings.product_image.alt | escape }}"
         class="qlf-product-image"
         loading="lazy"
@@ -81,6 +85,11 @@
   .qlf-hero-{{ section.id }} {
     width: 100%;
     padding: 20px;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .qlf-hero-{{ section.id }} * {
+    box-sizing: border-box;
   }
 
   .qlf-hero-{{ section.id }} .qlf-hero-card {
@@ -99,6 +108,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     z-index: 1;
   }
 
@@ -109,10 +119,12 @@
       linear-gradient(
         180deg,
         rgba(6, 30, 15, {{ section.settings.overlay_opacity | divided_by: 100.0 }}) 0%,
-        rgba(6, 30, 15, 0.15) 55%,
-        rgba(6, 30, 15, 0.05) 100%
+        rgba(6, 30, 15, 0.55) 35%,
+        rgba(6, 30, 15, 0.12) 70%,
+        rgba(6, 30, 15, 0.02) 100%
       );
     z-index: 2;
+    pointer-events: none;
   }
 
   .qlf-hero-{{ section.id }} .qlf-content {
@@ -130,9 +142,11 @@
     justify-content: center;
     gap: 12px;
     margin-bottom: 24px;
+    color: var(--text-color);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-color);
+    letter-spacing: -0.3px;
   }
 
   .qlf-hero-{{ section.id }} .qlf-stars {
@@ -140,15 +154,17 @@
     letter-spacing: 3px;
     font-size: 22px;
     line-height: 1;
+    text-shadow: 0 0 14px rgba(223, 255, 34, 0.35);
   }
 
   .qlf-hero-{{ section.id }} h1 {
     margin: 0;
     color: var(--text-color);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: clamp(38px, 7vw, {{ section.settings.heading_size }}px);
-    line-height: 1.05;
+    line-height: 1.08;
     font-weight: 700;
-    letter-spacing: -1.5px;
+    letter-spacing: -2.2px;
   }
 
   .qlf-hero-{{ section.id }} .qlf-badges {
@@ -167,9 +183,13 @@
     border-radius: 999px;
     background: var(--badge-bg);
     color: var(--text-color);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 18px;
     font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .qlf-hero-{{ section.id }} .qlf-badge span,
@@ -198,16 +218,25 @@
     border-radius: 999px;
     background: var(--accent-color);
     color: var(--button-text);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 22px;
     font-weight: 800;
     line-height: 1;
+    letter-spacing: -0.4px;
     text-decoration: none;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    box-shadow: 0 18px 40px rgba(223, 255, 34, 0.18);
+    transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
   }
 
   .qlf-hero-{{ section.id }} .qlf-button:hover {
     transform: translateY(-2px);
-    opacity: 0.92;
+    opacity: 0.94;
+    box-shadow: 0 22px 46px rgba(223, 255, 34, 0.24);
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-button span {
+    font-size: 24px;
+    line-height: 1;
   }
 
   .qlf-hero-{{ section.id }} .qlf-guarantee {
@@ -216,9 +245,11 @@
     justify-content: center;
     gap: 12px;
     margin-top: 28px;
+    color: rgba(255,255,255,0.9);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: rgba(255,255,255,0.9);
+    letter-spacing: -0.3px;
   }
 
   .qlf-hero-{{ section.id }} .qlf-guarantee span {
@@ -226,6 +257,7 @@
     height: 21px;
     background: #ffffff;
     color: #12301a;
+    font-size: 13px;
   }
 
   .qlf-hero-{{ section.id }} .qlf-product-image {
@@ -238,6 +270,7 @@
     height: {{ section.settings.image_area_height }}%;
     object-fit: cover;
     object-position: center bottom;
+    pointer-events: none;
   }
 
   @media screen and (max-width: 749px) {
@@ -251,12 +284,14 @@
 
     .qlf-hero-{{ section.id }} .qlf-content {
       padding: {{ section.settings.mobile_padding_top }}px 18px 20px;
+      max-width: 100%;
     }
 
     .qlf-hero-{{ section.id }} .qlf-reviews {
       font-size: 14px;
       margin-bottom: 20px;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .qlf-hero-{{ section.id }} .qlf-stars {
@@ -266,7 +301,8 @@
 
     .qlf-hero-{{ section.id }} h1 {
       font-size: clamp(32px, 10vw, {{ section.settings.mobile_heading_size }}px);
-      letter-spacing: -1px;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
     }
 
     .qlf-hero-{{ section.id }} .qlf-badges {
@@ -279,6 +315,12 @@
       font-size: 14px;
     }
 
+    .qlf-hero-{{ section.id }} .qlf-badge span {
+      width: 19px;
+      height: 19px;
+      font-size: 12px;
+    }
+
     .qlf-hero-{{ section.id }} .qlf-button {
       margin-top: 30px;
       padding: 20px 26px;
@@ -286,9 +328,19 @@
       min-width: 88%;
     }
 
+    .qlf-hero-{{ section.id }} .qlf-button span {
+      font-size: 20px;
+    }
+
     .qlf-hero-{{ section.id }} .qlf-guarantee {
       margin-top: 22px;
       font-size: 14px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-guarantee span {
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
     }
 
     .qlf-hero-{{ section.id }} .qlf-product-image {
@@ -383,7 +435,7 @@
       "default": "#1d3718"
     },
     {
-      "type": "color",
+      "type": "color_background",
       "id": "badge_bg",
       "label": "Fond des badges",
       "default": "rgba(255,255,255,0.08)"

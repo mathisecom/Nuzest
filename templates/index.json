@@ -118,10 +118,6 @@
     "featured_product_K7xLJH": {
       "type": "featured-product",
       "blocks": {
-        "vendor_aRxFYG": {
-          "type": "vendor",
-          "settings": {}
-        },
         "title_diaGQp": {
           "type": "title",
           "settings": {
@@ -188,7 +184,6 @@
         }
       },
       "block_order": [
-        "vendor_aRxFYG",
         "title_diaGQp",
         "badges_FzwWt6",
         "price_JUyhHr",

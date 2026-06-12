@@ -1,0 +1,488 @@
+<section
+  class="qlf-hero-{{ section.id }}"
+  style="
+    --bg-color: {{ section.settings.bg_color }};
+    --text-color: {{ section.settings.text_color }};
+    --accent-color: {{ section.settings.accent_color }};
+    --badge-bg: {{ section.settings.badge_bg }};
+    --button-text: {{ section.settings.button_text_color }};
+    --radius: {{ section.settings.border_radius }}px;
+  "
+>
+  <div class="qlf-hero-card">
+    {% if section.settings.background_image != blank %}
+      <img
+        src="{{ section.settings.background_image | image_url: width: 1400 }}"
+        alt=""
+        class="qlf-bg-image"
+        loading="lazy"
+      >
+    {% endif %}
+
+    <div class="qlf-overlay"></div>
+
+    <div class="qlf-content">
+      {% if section.settings.show_reviews %}
+        <div class="qlf-reviews">
+          <span class="qlf-stars">
+            {% for i in (1..5) %}
+              ★
+            {% endfor %}
+          </span>
+          <span>{{ section.settings.review_text }}</span>
+        </div>
+      {% endif %}
+
+      <h1>{{ section.settings.heading }}</h1>
+
+      <div class="qlf-badges">
+        {% if section.settings.badge_1 != blank %}
+          <div class="qlf-badge">
+            <span>✓</span>
+            {{ section.settings.badge_1 }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.badge_2 != blank %}
+          <div class="qlf-badge">
+            <span>✓</span>
+            {{ section.settings.badge_2 }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="qlf-button">
+          {{ section.settings.button_label }}
+          <span>→</span>
+        </a>
+      {% endif %}
+
+      {% if section.settings.guarantee_text != blank %}
+        <div class="qlf-guarantee">
+          <span>✓</span>
+          {{ section.settings.guarantee_text }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.product_image != blank %}
+      <img
+        src="{{ section.settings.product_image | image_url: width: 900 }}"
+        alt="{{ section.settings.product_image.alt | escape }}"
+        class="qlf-product-image"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .qlf-hero-{{ section.id }} {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-hero-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: {{ section.settings.section_height }}px;
+    border-radius: var(--radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(6, 30, 15, {{ section.settings.overlay_opacity | divided_by: 100.0 }}) 0%,
+        rgba(6, 30, 15, 0.15) 55%,
+        rgba(6, 30, 15, 0.05) 100%
+      );
+    z-index: 2;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-content {
+    position: relative;
+    z-index: 4;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 28px 20px;
+    text-align: center;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-reviews {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-stars {
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .qlf-hero-{{ section.id }} h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(38px, 7vw, {{ section.settings.heading_size }}px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-badges {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 38px;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    background: var(--badge-bg);
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-badge span,
+  .qlf-hero-{{ section.id }} .qlf-guarantee span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: #12301a;
+    font-size: 15px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: min(520px, 90%);
+    margin-top: 42px;
+    padding: 24px 38px;
+    border-radius: 999px;
+    background: var(--accent-color);
+    color: var(--button-text);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-guarantee span {
+    width: 21px;
+    height: 21px;
+    background: #ffffff;
+    color: #12301a;
+  }
+
+  .qlf-hero-{{ section.id }} .qlf-product-image {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: {{ section.settings.image_area_height }}%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  @media screen and (max-width: 749px) {
+    .qlf-hero-{{ section.id }} {
+      padding: 10px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-hero-card {
+      min-height: {{ section.settings.mobile_height }}px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-content {
+      padding: {{ section.settings.mobile_padding_top }}px 18px 20px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-reviews {
+      font-size: 14px;
+      margin-bottom: 20px;
+      gap: 8px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-stars {
+      font-size: 17px;
+      letter-spacing: 2px;
+    }
+
+    .qlf-hero-{{ section.id }} h1 {
+      font-size: clamp(32px, 10vw, {{ section.settings.mobile_heading_size }}px);
+      letter-spacing: -1px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-badges {
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-badge {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-button {
+      margin-top: 30px;
+      padding: 20px 26px;
+      font-size: 17px;
+      min-width: 88%;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-guarantee {
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    .qlf-hero-{{ section.id }} .qlf-product-image {
+      height: {{ section.settings.mobile_image_area_height }}%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero nutrition QLF",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Image de fond"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Image du bas / produit"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Afficher les avis",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "review_text",
+      "label": "Texte des avis",
+      "default": "5,354+ 5 Star Reviews"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre principal",
+      "default": "Nutrition Designed To\nTransform Your Daily Life"
+    },
+    {
+      "type": "text",
+      "id": "badge_1",
+      "label": "Badge 1",
+      "default": "Plant-Based"
+    },
+    {
+      "type": "text",
+      "id": "badge_2",
+      "label": "Badge 2",
+      "default": "No Artificials"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Transform Your Health"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Texte garantie",
+      "default": "100% Money Back Guarantee"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Couleur de fond",
+      "default": "#102916"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur principale",
+      "default": "#dfff22"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur texte bouton",
+      "default": "#1d3718"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Fond des badges",
+      "default": "rgba(255,255,255,0.08)"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Hauteur desktop",
+      "min": 500,
+      "max": 1100,
+      "step": 20,
+      "default": 860
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Hauteur mobile",
+      "min": 500,
+      "max": 1000,
+      "step": 20,
+      "default": 820
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Taille titre desktop",
+      "min": 36,
+      "max": 96,
+      "step": 2,
+      "default": 68
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Taille titre mobile",
+      "min": 28,
+      "max": 62,
+      "step": 2,
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espacement haut desktop",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Espacement haut mobile",
+      "min": 20,
+      "max": 140,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "image_area_height",
+      "label": "Hauteur image du bas desktop",
+      "min": 30,
+      "max": 80,
+      "step": 1,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_area_height",
+      "label": "Hauteur image du bas mobile",
+      "min": 30,
+      "max": 80,
+      "step": 1,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Opacité du dégradé foncé",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Arrondi des coins",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero nutrition QLF"
+    }
+  ]
+}
+{% endschema %}

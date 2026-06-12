@@ -8,59 +8,12 @@
  * ------------------------------------------------------------
  */
 {
+  "order": [
+    "main",
+    "related-products"
+  ],
   "sections": {
     "main": {
-      "type": "main-product",
-      "blocks": {
-        "vendor": {
-          "type": "vendor",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "badges": {
-          "type": "badges",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {}
-        },
-        "payment_terms": {
-          "type": "payment_terms",
-          "settings": {}
-        },
-        "separator": {
-          "type": "separator",
-          "settings": {}
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {}
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {}
-        },
-        "pickup_availability": {
-          "type": "pickup_availability",
-          "settings": {}
-        }
-      },
       "block_order": [
         "vendor",
         "title",
@@ -74,15 +27,62 @@
         "quantity_selector",
         "buy_buttons"
       ],
-      "settings": {}
+      "blocks": {
+        "badges": {
+          "settings": {},
+          "type": "badges"
+        },
+        "buy_buttons": {
+          "settings": {},
+          "type": "buy_buttons"
+        },
+        "description": {
+          "settings": {},
+          "type": "description"
+        },
+        "payment_terms": {
+          "settings": {},
+          "type": "payment_terms"
+        },
+        "pickup_availability": {
+          "settings": {},
+          "type": "pickup_availability"
+        },
+        "price": {
+          "settings": {},
+          "type": "price"
+        },
+        "quantity_selector": {
+          "settings": {},
+          "type": "quantity_selector"
+        },
+        "rating": {
+          "settings": {},
+          "type": "rating"
+        },
+        "separator": {
+          "settings": {},
+          "type": "separator"
+        },
+        "title": {
+          "settings": {},
+          "type": "title"
+        },
+        "variant_picker": {
+          "settings": {},
+          "type": "variant_picker"
+        },
+        "vendor": {
+          "settings": {},
+          "type": "vendor"
+        }
+      },
+      "settings": {},
+      "type": "main-product"
     },
     "related-products": {
-      "type": "related-products",
-      "settings": {}
+      "settings": {},
+      "type": "related-products"
     }
-  },
-  "order": [
-    "main",
-    "related-products"
-  ]
+  }
 }

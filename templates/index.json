@@ -9,6 +9,35 @@
  */
 {
   "sections": {
+    "hero_nutrition_MwTLzC": {
+      "type": "hero-nutrition",
+      "name": "Hero nutrition QLF",
+      "settings": {
+        "show_reviews": true,
+        "review_text": "5,354+ 5 Star Reviews",
+        "heading": "Nutrition Designed To\nTransform Your Daily Life",
+        "badge_1": "Plant-Based",
+        "badge_2": "No Artificials",
+        "button_label": "Transform Your Health",
+        "button_link": "",
+        "guarantee_text": "100% Money Back Guarantee",
+        "bg_color": "#102916",
+        "text_color": "#ffffff",
+        "accent_color": "#dfff22",
+        "button_text_color": "#1d3718",
+        "badge_bg": "rgba(255,255,255,0.08)",
+        "section_height": 860,
+        "mobile_height": 820,
+        "heading_size": 68,
+        "mobile_heading_size": 28,
+        "padding_top": 70,
+        "mobile_padding_top": 60,
+        "image_area_height": 48,
+        "mobile_image_area_height": 48,
+        "overlay_opacity": 80,
+        "border_radius": 16
+      }
+    },
     "logoscroll_VwWTwr": {
       "type": "logoscroll",
       "blocks": {
@@ -145,6 +174,7 @@
     }
   },
   "order": [
+    "hero_nutrition_MwTLzC",
     "logoscroll_VwWTwr",
     "slideshow"
   ]

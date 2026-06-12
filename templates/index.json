@@ -45,23 +45,27 @@
         "image_pKXGJr": {
           "type": "image",
           "settings": {
-            "url": ""
-          }
-        },
-        "image_hAxCmp": {
-          "type": "image",
-          "settings": {
+            "image": "shopify://shop_images/Nouveau_projet_34.png",
             "url": ""
           }
         },
         "image_Qihwjg": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Nouveau_projet_35.png",
+            "url": ""
+          }
+        },
+        "image_hAxCmp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Comopolitan_Magazine_Logo.png",
             "url": ""
           }
         },
         "image_68MGmX": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "url": ""
           }
@@ -69,8 +73,8 @@
       },
       "block_order": [
         "image_pKXGJr",
-        "image_hAxCmp",
         "image_Qihwjg",
+        "image_hAxCmp",
         "image_68MGmX"
       ],
       "name": "SS - Scrolling logo cloud #5",
@@ -88,7 +92,7 @@
         "scrolling_direction": "left",
         "pause_hover": false,
         "scrolling_gap": 70,
-        "scrolling_gap_mobile": 12,
+        "scrolling_gap_mobile": 20,
         "card_width_desktop": 130,
         "card_width_mobile": 100,
         "heading_color": "#121212",
@@ -109,6 +113,110 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "featured_product_K7xLJH": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_aRxFYG": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_diaGQp": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges_FzwWt6": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_JUyhHr": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_CWirdW": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "separator_7J4Prp": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_JPNhrJ": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker_nVq6UC": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_JbBT8f": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_bEk8iK": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_hRkjhd": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_aRxFYG",
+        "title_diaGQp",
+        "badges_FzwWt6",
+        "price_JUyhHr",
+        "rating_CWirdW",
+        "separator_7J4Prp",
+        "description_JPNhrJ",
+        "variant_picker_nVq6UC",
+        "quantity_selector_JbBT8f",
+        "buy_buttons_bEk8iK",
+        "pickup_availability_hRkjhd"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "full_width": true,
+        "product": "",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
       }
     },
     "slideshow": {
@@ -177,6 +285,7 @@
   "order": [
     "hero_nutrition_MwTLzC",
     "logoscroll_VwWTwr",
+    "featured_product_K7xLJH",
     "slideshow"
   ]
 }
